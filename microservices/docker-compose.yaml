@@ -1,0 +1,63 @@
+version: '3.3'  # version of compose format
+
+services:
+  landing-service:
+    build: ./landing  # path is relative to docker-compose.yml location
+    hostname: landing-service
+    ports:
+      - "5050:5050"  # host:container
+    networks:
+      - local
+  # Add more services below
+  add-service:
+    build: ./add_service
+    hostname: add_service
+    ports:
+      - "5051:5051"
+    networks:
+      - local
+  sub-service:
+    build: ./sub_service
+    hostname: sub_service
+    ports:
+      - "5052:5052"
+    networks:
+      - local
+  mul-service:
+    build: ./mul_service
+    hostname: mul_service
+    ports:
+      - "5053:5053"
+    networks:
+      - local
+  div-service:
+    build: ./div_service
+    hostname: div_service
+    ports:
+      - "5054:5054"
+    networks:
+      - local
+  mod-service:
+    build: ./mod_service
+    hostname: mod_service
+    ports:
+      - "5055:5055"
+    networks:
+      - local
+  exp-service:
+    build: ./exp_service
+    hostname: exp_service
+    ports:
+      - "5056:5056"
+    networks:
+      - local
+  equ-service:
+    build: ./equ_service
+    hostname: equ_service
+    ports:
+      - "5057:5057"
+    networks:
+      - local
+networks:
+  local:
+    driver: bridge
